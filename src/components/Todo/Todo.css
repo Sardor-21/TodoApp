@@ -1,0 +1,72 @@
+body {
+    background-color: black;
+}
+
+.todos__container1 {
+    background-image: url("../../images/img1.png") !important;
+}
+
+.todo__content {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.todo__form {
+    background-color: #25273E;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.todo__form .input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+.todo__form .input::placeholder {
+    color: gray;
+}
+
+.chek__input[type=checkbox] {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    outline: none !important;
+}
+
+.todo__content2 {
+    background-color: #25273E;
+    padding: 20px;
+    color: #9899b8;
+    border-radius: 5px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.todo__list {
+    padding: 20px 0px;
+    border-bottom: 1px solid #9899b8;
+}
+
+.todo__comp {
+    overflow: hidden;
+    position: relative;
+    width: 127px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.comp {
+    display: flex;
+    position: absolute;
+    top: -120%;
+    left: 0;
+    width: 50%;
+    transition: .5s;
+}
+
+.comp__hide {
+    top: 0 !important;
+    transition: .5s;
+}
