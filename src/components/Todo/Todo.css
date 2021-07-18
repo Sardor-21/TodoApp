@@ -1,26 +1,32 @@
-body {
-    background-color: black;
+.todos {
+    min-height: 100vh;
+    transition: 1s;
+    background-image: url("../../images/img1.png");
+    background-size: cover;
 }
 
-.todos__container1 {
-    background-image: url("../../images/img1.png") !important;
+.todos__white {
+    background-image: url("../../images/img4.jpg");
 }
 
-.todo__content {
+.plus__btn {
+    color: white;
+    transition: 1s;
+}
+
+.todo__form {
     width: 50%;
     margin: 0 auto;
 }
 
-.todo__form {
-    background-color: #25273E;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.todo__form .input {
-    background-color: transparent;
+ .input {
+    background-color: transparent; 
     outline: none;
     border: none;
+    color: white;
+}
+.input:focus {
+    background-color: transparent;
     color: white;
 }
 
@@ -28,20 +34,32 @@ body {
     color: gray;
 }
 
-.chek__input[type=checkbox] {
-    width: 20px !important;
-    height: 20px !important;
+.chek__input[type="checkbox"] {
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.chek__input[type="checkbox"]::before {
+    content: '';
+    width: 100% !important;
+    height: 100% !important;
     border-radius: 50% !important;
     outline: none !important;
 }
 
-.todo__content2 {
+.todo__content {
     background-color: #25273E;
     padding: 20px;
     color: #9899b8;
     border-radius: 5px;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
+}
+
+.todo__content-white {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgb(204, 199, 199);
 }
 
 .todo__list {
@@ -69,4 +87,14 @@ body {
 .comp__hide {
     top: 0 !important;
     transition: .5s;
+}
+
+.chek__input:checked+.tasks {
+    text-decoration: line-through;
+}
+
+@media screen and (max-width:992px) {
+    .todo__form {
+        width: 100% !important;
+    }
 }
