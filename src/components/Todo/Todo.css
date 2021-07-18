@@ -13,6 +13,10 @@
     color: white;
     transition: 1s;
 }
+.plus__btn:hover {
+    color: white;
+    transition: 1s;
+}
 
 .todo__form {
     width: 50%;
@@ -58,7 +62,7 @@
 }
 
 .todo__content-white {
-    background-color: #ffffff;
+    background-color: #E9EBEC;
     box-shadow: 0 0 10px rgb(204, 199, 199);
 }
 

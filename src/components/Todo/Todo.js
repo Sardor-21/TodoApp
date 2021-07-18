@@ -128,8 +128,9 @@ export default class Todo extends Component {
                                             <div className={`d-flex comp ${this.state.a == index && "comp__hide" || ""}`}>
                                                 <button className="btn text-danger shadow-none" onClick={() => this.delete(index)}><FaTrash /></button>
                                                 {
-                                                    this.state.b ? <button className="btn text-white  shadow-none plus__btn me-2" onClick={() => this.save(index)}><FaSave /></button> : <button className="btn text-warning shadow-none" onClick={() => this.edit(index)}><FaEdit /></button>
-
+                                                    this.state.b ? <button className="btn text-success  shadow-none plus__btn me-2" onClick={() => this.save(index)}><FaSave /></button>
+                                                        :
+                                                        <button className="btn text-warning shadow-none" onClick={() => this.edit(index)}><FaEdit /></button>
                                                 }
                                             </div>
                                             <button className={`btn plus__btn  shadow-none  ${this.state.f && "text-dark"}`} onClick={() => this.showHide(index)}>
