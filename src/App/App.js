@@ -4,15 +4,15 @@ import Todo from '../components/Todo/Todo';
 
 const todos = [
   {
-    title: "task 1",
+    title: "Task 1",
     status: false,
   },
   {
-    title: "task 2",
+    title: "Task 2",
     status: false,
   },
   {
-    title: "task 3",
+    title: "Task 3",
     status: false,
   },
 ]

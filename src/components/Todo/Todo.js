@@ -5,7 +5,9 @@ import './Todo.css';
 export default class Todo extends Component {
     constructor(props) {
         super(props);
-        this.state = { todos: props.todos, typing: '' }
+        this.state = { todos: props.todos, typing: '', activeLink: "" }
+
+
     }
 
     state = { a: -1, b: true, s: true, d: true, f: true }
@@ -87,6 +89,23 @@ export default class Todo extends Component {
         this.setState((state) => {
             console.log(state);
             return { f: !state.f }
+        });
+    }
+
+    clearAll = (index) => {
+        this.setState((state) => {
+            let array = [...state.todos]
+            array.splice(index);
+            return { todos: array }
+        })
+    }
+
+    btnactive = (event) => {
+        this.setState((state) => {
+            state.activeLink?.classList?.remove("activebtn");
+            event.target.classList.add("activebtn");
+            state.activeLink = event.target;
+
         })
     }
     render() {
@@ -122,7 +141,7 @@ export default class Todo extends Component {
                                     return <div className="d-flex  align-items-center justify-content-between todo__list">
                                         <div className="d-flex align-items-center">
                                             <input type="checkbox" className="me-3 chek__input" />
-                                            <p className="mb-0 fw-bold tasks">{value.title}</p>
+                                            <p className={`mb-0 fw-bold tasks ${this.state.f && "text-dark"}`}>{value.title}</p>
                                         </div>
                                         <div className="todo__comp">
                                             <div className={`d-flex comp ${this.state.a == index && "comp__hide" || ""}`}>
@@ -140,6 +159,15 @@ export default class Todo extends Component {
                                     </div>
                                 })
                             }
+                            <div className="d-flex  footer align-items-center flex-wrap text-white">
+                                <p className="mb-0">{this.state.todos.length} items left</p>
+                                <div>
+                                    <button className="btn text-secondary shadow-none" onClick={this.btnactive} id="button">All</button>
+                                    <button className="btn text-secondary shadow-none" onClick={this.btnactive} id="button">Active</button>
+                                    <button className="btn text-secondary shadow-none" onClick={this.btnactive} id="button">Completed</button>
+                                </div>
+                                <button className="btn text-secondary shadow-none" onClick={() => this.clearAll()}>Clear All</button>
+                            </div>
                         </div>
                     </div>
                 </div>
