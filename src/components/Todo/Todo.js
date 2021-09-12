@@ -7,7 +7,7 @@ import todos from "../../data/todosdata";
 export default class Todo extends Component {
     constructor(props) {
         super(props);
-        this.state = {todos: props.todos, typing: '', activeLink: "", filterTodos: props.todos}
+        this.state = {todos: props.todos, typing: '', activeLink: 1, filterTodos: props.todos}
     }
 
     state = {a: -1, b: true, s: true, d: true, f: true, h: true, idx: "",}
@@ -93,7 +93,7 @@ export default class Todo extends Component {
         this.setState((state) => {
             let array = [...state.todos];
             console.log(array)
-            return {filterTodos: array}
+            return {filterTodos: array,  activeLink: 1}
         })
     }
     activeTodos = () => {
@@ -101,14 +101,14 @@ export default class Todo extends Component {
             let array = [...state.todos];
             let filterarray = array.filter((v) => v.status === false);
             console.log(filterarray);
-            return {filterTodos: filterarray}
+            return {filterTodos: filterarray , activeLink: 2}
         })
     }
     completedTodos = () => {
         this.setState((state) => {
             let array = [...state.todos];
             let filterarray = array.filter((v) => v.status);
-            return {filterTodos: filterarray};
+            return {filterTodos: filterarray, activeLink: 3};
         })
     }
 
@@ -182,13 +182,13 @@ export default class Todo extends Component {
                             <div className="d-flex  footer align-items-center flex-wrap text-white">
                                 <p className="mb-0">{this.state.filterTodos.length} items left</p>
                                 <div>
-                                    <button className="btn text-secondary shadow-none" onClick={this.allTodos}
+                                    <button className={`btn text-secondary shadow-none ${this.state.activeLink == 1 ? "activebtn" : ""} `} onClick={this.allTodos}
                                             id="button">All
                                     </button>
-                                    <button className="btn text-secondary shadow-none" onClick={this.activeTodos}
+                                    <button className={`btn text-secondary shadow-none ${this.state.activeLink == 2 ? "activebtn" : ""} `} onClick={this.activeTodos}
                                             id="button">Active
                                     </button>
-                                    <button className="btn text-secondary shadow-none" onClick={this.completedTodos}
+                                    <button className={`btn text-secondary shadow-none ${this.state.activeLink == 3 ? "activebtn" : ""} `} onClick={this.completedTodos}
                                             id="button">Completed
                                     </button>
                                 </div>

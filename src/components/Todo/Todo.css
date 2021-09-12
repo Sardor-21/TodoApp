@@ -123,10 +123,6 @@
     color: white;
 }
 
-.chek__input:checked + .tasks {
-    text-decoration: line-through;
-    color: chartreuse;
-}
 
 .footer {
     justify-content: space-between;
