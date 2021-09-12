@@ -40,7 +40,7 @@ export default class Todo extends Component {
         this.setState((state) => {
             let massiv = [...state.todos]
             massiv.splice(index, 1);
-            return {todos: massiv}
+            return {todos: massiv, filterTodos: massiv}
             if (state.a != index) return {a: index}
             else return {a: -1}
         })
@@ -51,14 +51,14 @@ export default class Todo extends Component {
         this.setState((state) => {
             let massiv = [...state.filterTodos]
             this.state.typing = massiv[index].title;
-            return {todos: massiv,  b: !state.b, d: true, idx: index}
+            return {todos: massiv,filterTodos: massiv,  b: !state.b, d: true, idx: index}
         })
     }
 
 
     save = () => {
         this.setState((state) => {
-            let massiv = [...state.todos];
+            let massiv = [...state.filterTodos];
             massiv[state.idx].title = this.state.typing;
             console.log(massiv);
             return {filterTodos: massiv, b: !state.b, d: false, typing: ""};
